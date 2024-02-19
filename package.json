@@ -1,6 +1,6 @@
 {
   "name": "which-runtime",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Detect if you are in Bare or Node and which os etc",
   "main": "index.js",
   "dependencies": {},
