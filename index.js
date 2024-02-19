@@ -19,3 +19,4 @@ exports.isIOS = platform === 'ios' || platform === 'ios-simulator'
 exports.isAndroid = platform === 'android'
 exports.isElectron = !!(typeof process !== 'undefined' && global.process.versions.electron)
 exports.isElectronRenderer = !!(typeof process !== 'undefined' && global.process.versions.electron && global.process.type === 'renderer')
+exports.isElectronWorker = !!(typeof process !== 'undefined' && global.process.versions.electron && global.process.type === 'worker')
