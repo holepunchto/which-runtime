@@ -3,6 +3,9 @@
   "version": "1.2.0",
   "description": "Detect if you are in Bare or Node and which os etc",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "dependencies": {},
   "devDependencies": {
     "standard": "^17.0.0"
