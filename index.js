@@ -10,6 +10,8 @@ exports.runtime = runtime
 exports.platform = platform
 exports.arch = arch
 exports.isBare = runtime === 'bare'
+exports.isBareKit = exports.isBare && typeof BareKit !== 'undefined'
+exports.isPear = exports.isBare && typeof Pear !== 'undefined'
 exports.isNode = runtime === 'node'
 exports.isBrowser = runtime === 'browser'
 exports.isWindows = platform === 'win32'
@@ -17,6 +19,6 @@ exports.isLinux = platform === 'linux'
 exports.isMac = platform === 'darwin'
 exports.isIOS = platform === 'ios' || platform === 'ios-simulator'
 exports.isAndroid = platform === 'android'
-exports.isElectron = !!(typeof process !== 'undefined' && global.process.versions.electron)
-exports.isElectronRenderer = !!(typeof process !== 'undefined' && global.process.versions.electron && global.process.type === 'renderer')
-exports.isElectronWorker = !!(typeof process !== 'undefined' && global.process.versions.electron && global.process.type === 'worker')
+exports.isElectron = typeof process !== 'undefined' && !!global.process.versions.electron
+exports.isElectronRenderer = exports.isElectron && global.process.type === 'renderer'
+exports.isElectronWorker = exports.isElectron && global.process.type === 'worker'
