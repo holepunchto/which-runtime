@@ -11,7 +11,7 @@ exports.platform = platform
 exports.arch = arch
 exports.isBare = runtime === 'bare'
 exports.isBareKit = exports.isBare && typeof BareKit !== 'undefined'
-exports.isPear = exports.isBare && typeof Pear !== 'undefined'
+exports.isPear = typeof Pear !== 'undefined'
 exports.isNode = runtime === 'node'
 exports.isBrowser = runtime === 'browser'
 exports.isWindows = platform === 'win32'
