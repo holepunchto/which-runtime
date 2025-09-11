@@ -17,14 +17,14 @@ const isExpo = typeof global !== 'undefined' &&
    global.ExpoModules ||
    (typeof global.require !== 'undefined' && global.require.main?.filename?.includes('expo')))
 
-const isMobile = isReactNative || isExpo || isIOS || isAndroid
+const isIOS = platform === 'ios' || platform === 'ios-simulator'
+const isAndroid = platform === 'android'
 
 exports.runtime = runtime
 exports.platform = platform
 exports.arch = arch
 exports.isReactNative = isReactNative
 exports.isExpo = isExpo
-exports.isMobile = isMobile
 exports.isBare = runtime === 'bare'
 exports.isBareKit = exports.isBare && typeof BareKit !== 'undefined'
 exports.isPear = typeof Pear !== 'undefined'
@@ -33,8 +33,9 @@ exports.isBrowser = runtime === 'browser'
 exports.isWindows = platform === 'win32'
 exports.isLinux = platform === 'linux'
 exports.isMac = platform === 'darwin'
-exports.isIOS = platform === 'ios' || platform === 'ios-simulator'
-exports.isAndroid = platform === 'android'
+exports.isIOS = isIOS
+exports.isAndroid = isAndroid
 exports.isElectron = typeof process !== 'undefined' && !!global.process.versions?.electron
 exports.isElectronRenderer = exports.isElectron && global.process.type === 'renderer'
 exports.isElectronWorker = exports.isElectron && global.process.type === 'worker'
+exports.isMobile = isReactNative || isExpo || isIOS || isAndroid
