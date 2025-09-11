@@ -6,9 +6,22 @@ const { runtime, platform, arch } = typeof Bare !== 'undefined'
       ? { runtime: 'browser', platform: 'unknown', arch: 'unknown' }
       : { runtime: 'unknown', platform: 'unknown', arch: 'unknown' }
 
+const isReactNative = typeof global !== 'undefined' &&
+  (global.navigator?.product === 'ReactNative' ||
+    global.__DEV__ === true ||
+   typeof global.HermesInternal !== 'undefined' ||
+   (typeof global.require !== 'undefined' && global.require.main?.filename?.includes('react-native')))
+
+const isExpo = typeof global !== 'undefined' &&
+  (global.__expo ||
+   global.ExpoModules ||
+   (typeof global.require !== 'undefined' && global.require.main?.filename?.includes('expo')))
+
 exports.runtime = runtime
 exports.platform = platform
 exports.arch = arch
+exports.isReactNative = isReactNative
+exports.isExpo = isExpo
 exports.isBare = runtime === 'bare'
 exports.isBareKit = exports.isBare && typeof BareKit !== 'undefined'
 exports.isPear = typeof Pear !== 'undefined'
