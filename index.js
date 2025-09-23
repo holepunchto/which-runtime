@@ -23,8 +23,8 @@ exports.arch = arch
 exports.isReactNative = isReactNative
 exports.isExpo = isExpo
 exports.isBare = runtime === 'bare'
-exports.isBareKit = exports.isBare && BareKit
-exports.isPear = Pear
+exports.isBareKit = exports.isBare && typeof BareKit !== 'undefined'
+exports.isPear = typeof Pear !== 'undefined'
 exports.isNode = runtime === 'node'
 exports.isBrowser = runtime === 'browser'
 exports.isWindows = platform === 'win32'
@@ -32,7 +32,7 @@ exports.isLinux = platform === 'linux'
 exports.isMac = platform === 'darwin'
 exports.isIOS = isIOS
 exports.isAndroid = isAndroid
-exports.isElectron = process && !!global.process.versions?.electron
+exports.isElectron = typeof process !== 'undefined' && !!global.process.versions?.electron
 exports.isElectronRenderer = exports.isElectron && global.process.type === 'renderer'
 exports.isElectronWorker = exports.isElectron && global.process.type === 'worker'
 exports.isMobile = isReactNative || isExpo || isIOS || isAndroid
