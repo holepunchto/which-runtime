@@ -6,12 +6,10 @@
   "files": [
     "index.js"
   ],
-  "dependencies": {},
-  "devDependencies": {
-    "standard": "^17.0.0"
-  },
   "scripts": {
-    "test": "standard"
+    "format": "prettier --write .",
+    "lint": "prettier --check .",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -22,5 +20,9 @@
   "bugs": {
     "url": "https://github.com/holepunchto/which-runtime/issues"
   },
-  "homepage": "https://github.com/holepunchto/which-runtime"
+  "homepage": "https://github.com/holepunchto/which-runtime",
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "prettier-config-holepunch": "^1.0.0"
+  }
 }
