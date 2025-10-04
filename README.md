@@ -8,7 +8,7 @@ npm install which-runtime
 
 ## Usage
 
-``` js
+```js
 import {
   runtime, // bare, node, or browser
   platform, // the platform string, ie darwin, win32, etc
