@@ -28,9 +28,6 @@ exports.isLinux = platform === 'linux'
 exports.isMac = platform === 'darwin'
 exports.isIOS = platform === 'ios' || platform === 'ios-simulator'
 exports.isAndroid = platform === 'android'
-exports.isElectron =
-  typeof process !== 'undefined' && !!global.process.versions?.electron
-exports.isElectronRenderer =
-  exports.isElectron && global.process.type === 'renderer'
-exports.isElectronWorker =
-  exports.isElectron && global.process.type === 'worker'
+exports.isElectron = typeof process !== 'undefined' && !!global.process.versions?.electron
+exports.isElectronRenderer = exports.isElectron && global.process.type === 'renderer'
+exports.isElectronWorker = exports.isElectron && global.process.type === 'worker'
