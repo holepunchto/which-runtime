@@ -6,14 +6,8 @@ const { runtime, platform, arch } = typeof Bare !== 'undefined'
       ? { runtime: 'browser', platform: 'unknown', arch: 'unknown' }
       : { runtime: 'unknown', platform: 'unknown', arch: 'unknown' }
 
-const isReactNative = typeof global !== 'undefined' &&
-  (global.navigator?.product === 'ReactNative' ||
-   global.HermesInternal)
-
-const isExpo = typeof global !== 'undefined' &&
-  (global.__expo ||
-   global.ExpoModules)
-
+const isReactNative = global.navigator?.product === 'ReactNative'
+const isExpo = !!global.__expo
 const isIOS = platform === 'ios' || platform === 'ios-simulator'
 const isAndroid = platform === 'android'
 
