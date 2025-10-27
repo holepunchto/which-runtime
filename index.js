@@ -6,16 +6,11 @@ const { runtime, platform, arch } = typeof Bare !== 'undefined'
       ? { runtime: 'browser', platform: 'unknown', arch: 'unknown' }
       : { runtime: 'unknown', platform: 'unknown', arch: 'unknown' }
 
-const isReactNative = global.navigator?.product === 'ReactNative'
-const isExpo = !!global.__expo
-const isIOS = platform === 'ios' || platform === 'ios-simulator'
-const isAndroid = platform === 'android'
-
 exports.runtime = runtime
 exports.platform = platform
 exports.arch = arch
-exports.isReactNative = isReactNative
-exports.isExpo = isExpo
+exports.isReactNative = global.navigator?.product === 'ReactNative'
+exports.isExpo = !!global.__expo
 exports.isBare = runtime === 'bare'
 exports.isBareKit = exports.isBare && typeof BareKit !== 'undefined'
 exports.isPear = typeof Pear !== 'undefined'
@@ -24,9 +19,9 @@ exports.isBrowser = runtime === 'browser'
 exports.isWindows = platform === 'win32'
 exports.isLinux = platform === 'linux'
 exports.isMac = platform === 'darwin'
-exports.isIOS = isIOS
-exports.isAndroid = isAndroid
+exports.isIOS = platform === 'ios' || platform === 'ios-simulator'
+exports.isAndroid = platform === 'android'
 exports.isElectron = typeof process !== 'undefined' && !!global.process.versions?.electron
 exports.isElectronRenderer = exports.isElectron && global.process.type === 'renderer'
 exports.isElectronWorker = exports.isElectron && global.process.type === 'worker'
-exports.isMobile = isReactNative || isExpo || isIOS || isAndroid
+exports.isMobile = exports.isReactNative || exports.isExpo || exports.isIOS || exports.isAndroid
