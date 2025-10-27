@@ -22,3 +22,5 @@ exports.isAndroid = platform === 'android'
 exports.isElectron = typeof process !== 'undefined' && !!global.process.versions?.electron
 exports.isElectronRenderer = exports.isElectron && global.process.type === 'renderer'
 exports.isElectronWorker = exports.isElectron && global.process.type === 'worker'
+exports.isReactNative = typeof navigator !== 'undefined' && navigator.product === 'ReactNative'
+exports.isExpo = typeof __expo !== 'undefined'
