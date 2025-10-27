@@ -9,8 +9,6 @@ const { runtime, platform, arch } = typeof Bare !== 'undefined'
 exports.runtime = runtime
 exports.platform = platform
 exports.arch = arch
-exports.isReactNative = global.navigator?.product === 'ReactNative'
-exports.isExpo = !!global.__expo
 exports.isBare = runtime === 'bare'
 exports.isBareKit = exports.isBare && typeof BareKit !== 'undefined'
 exports.isPear = typeof Pear !== 'undefined'
@@ -24,4 +22,5 @@ exports.isAndroid = platform === 'android'
 exports.isElectron = typeof process !== 'undefined' && !!global.process.versions?.electron
 exports.isElectronRenderer = exports.isElectron && global.process.type === 'renderer'
 exports.isElectronWorker = exports.isElectron && global.process.type === 'worker'
-exports.isMobile = exports.isReactNative || exports.isExpo || exports.isIOS || exports.isAndroid
+exports.isReactNative = typeof navigator !== 'undefined' && navigator.product === 'ReactNative'
+exports.isExpo = typeof __expo !== 'undefined'
