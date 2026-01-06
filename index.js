@@ -1,10 +1,19 @@
-const { runtime, platform, arch } = typeof Bare !== 'undefined'
-  ? { runtime: 'bare', platform: global.Bare.platform, arch: global.Bare.arch }
-  : typeof process !== 'undefined'
-    ? { runtime: 'node', platform: global.process.platform, arch: global.process.arch }
-    : typeof Window !== 'undefined'
-      ? { runtime: 'browser', platform: 'unknown', arch: 'unknown' }
-      : { runtime: 'unknown', platform: 'unknown', arch: 'unknown' }
+const { runtime, platform, arch } =
+  typeof Bare !== 'undefined'
+    ? {
+        runtime: 'bare',
+        platform: global.Bare.platform,
+        arch: global.Bare.arch
+      }
+    : typeof process !== 'undefined'
+      ? {
+          runtime: 'node',
+          platform: global.process.platform,
+          arch: global.process.arch
+        }
+      : typeof Window !== 'undefined'
+        ? { runtime: 'browser', platform: 'unknown', arch: 'unknown' }
+        : { runtime: 'unknown', platform: 'unknown', arch: 'unknown' }
 
 exports.runtime = runtime
 exports.platform = platform
