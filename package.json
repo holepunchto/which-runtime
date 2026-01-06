@@ -8,8 +8,10 @@
   ],
   "scripts": {
     "format": "prettier --write .",
-    "lint": "prettier --check .",
-    "test": "npm run lint"
+    "lint": "prettier --check . && lunte .",
+    "test": "npm run test:node && npm run test:bare",
+    "test:node": "brittle-node test.js",
+    "test:bare": "brittle-bare test.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,8 @@
   },
   "homepage": "https://github.com/holepunchto/which-runtime",
   "devDependencies": {
+    "brittle": "^3.0.0",
+    "lunte": "^1.4.0",
     "prettier": "^3.6.2",
     "prettier-config-holepunch": "^2.0.0"
   }
