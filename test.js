@@ -5,6 +5,7 @@ test('basic exports', function (t) {
   t.is(typeof which.runtime, 'string')
   t.is(typeof which.platform, 'string')
   t.is(typeof which.arch, 'string')
+  t.is(typeof which.host, 'string')
   t.is(typeof which.isBare, 'boolean')
   t.is(typeof which.isBareKit, 'boolean')
   t.is(typeof which.isPear, 'boolean')
@@ -18,6 +19,10 @@ test('basic exports', function (t) {
   t.is(typeof which.isElectron, 'boolean')
   t.is(typeof which.isElectronRenderer, 'boolean')
   t.is(typeof which.isElectronWorker, 'boolean')
+})
+
+test('host detection', function (t) {
+  t.is(which.host, which.platform + '-' + which.arch)
 })
 
 test('runtime detection', function (t) {

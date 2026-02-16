@@ -13,6 +13,7 @@ import {
   runtime, // bare, node, or browser
   platform, // the platform string, ie darwin, win32, etc
   arch, // which arch, arm64, ia32, x64 etc
+  host, // {platform}-{arch}
   isBrowser,
   isBare,
   isNode,

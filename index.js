@@ -18,6 +18,7 @@ const { runtime, platform, arch } =
 exports.runtime = runtime
 exports.platform = platform
 exports.arch = arch
+exports.host = platform + '-' + arch
 exports.isBare = runtime === 'bare'
 exports.isBareKit = exports.isBare && typeof BareKit !== 'undefined'
 exports.isPear = typeof Pear !== 'undefined'
